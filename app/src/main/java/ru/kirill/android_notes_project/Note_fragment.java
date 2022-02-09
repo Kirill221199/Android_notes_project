@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 
 public class Note_fragment extends Fragment {
 
-    public static Note_fragment newInstance(String param1, String param2) {
+    public static Note_fragment newInstance() {
         Note_fragment fragment = new Note_fragment();
         return fragment;
     }
