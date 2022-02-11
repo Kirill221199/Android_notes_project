@@ -1,6 +1,7 @@
 package ru.kirill.android_notes_project;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -18,12 +19,15 @@ public class MainActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction().replace(R.id.frame_note, note_fragment).commit();
         }
 
-        if(getResources().getConfiguration().orientation == Configuration
-                .ORIENTATION_LANDSCAPE){
-            Note_content_fragment note_content_fragment = new Note_content_fragment();
-            getSupportFragmentManager().beginTransaction().replace(R.id.frame_note_content,
-                    note_content_fragment).commit();
-        }
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Fragment backStackFragment = (Fragment)getSupportFragmentManager()
+                .findFragmentById(R.id.frame_note);
+        if(backStackFragment!=null&&backStackFragment instanceof Note_content_fragment){
+            onBackPressed();
+        }
     }
 }
