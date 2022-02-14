@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Note_fragment"
-    android:orientation="vertical"
-    android:background="@color/purple_200">
+    android:orientation="vertical">
 
     <!-- TODO: Update blank fragment layout -->
 

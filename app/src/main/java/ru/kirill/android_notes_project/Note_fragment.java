@@ -1,8 +1,11 @@
 package ru.kirill.android_notes_project;
 
 import android.content.res.Configuration;
+import android.graphics.Color;
+import android.graphics.ColorSpace;
 import android.os.Bundle;
 
+import androidx.annotation.ColorRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -56,6 +59,7 @@ public class Note_fragment extends Fragment {
             String noteName = notes[i];
             TextView textView = new TextView(getContext());
             textView.setTextSize(30f);
+            textView.setTextColor(Color.rgb(0,0,0));
             textView.setText(noteName);
             ((LinearLayout) view).addView(textView);
             final int finalI = i;
@@ -81,7 +85,7 @@ public class Note_fragment extends Fragment {
 
     protected void showPort(){
         Note_content_fragment note_content_fragment =Note_content_fragment.newInstance(currentNote);
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_note,
+        getActivity().getSupportFragmentManager().beginTransaction().add(R.id.frame_note,
                 note_content_fragment).addToBackStack("").commit();
     }
 }

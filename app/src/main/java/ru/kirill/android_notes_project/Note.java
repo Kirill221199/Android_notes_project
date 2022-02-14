@@ -52,4 +52,5 @@ public class Note implements Parcelable {
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeInt(index);
     }
+
 }
