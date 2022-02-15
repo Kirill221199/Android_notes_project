@@ -2,4 +2,7 @@
     <string name="app_name">Android_notes_project</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="about_developer">About developer</string>
+    <string name="settings">Settings</string>
+    <string name="developer_info">Hello, this section will describe information about the developer</string>
 </resources>
