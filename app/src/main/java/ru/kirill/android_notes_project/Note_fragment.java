@@ -10,11 +10,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Note_fragment extends Fragment {
 
@@ -74,8 +78,48 @@ public class Note_fragment extends Fragment {
                     }
                 }
             });
+            textView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    PopupMenu popupMenu = new  PopupMenu(requireContext(),view, Gravity.CENTER);
+                    requireActivity().getMenuInflater().inflate(R.menu.note_popup_menu,
+                            popupMenu.getMenu());
+
+                    popupMenu.setOnMenuItemClickListener (new PopupMenu.OnMenuItemClickListener() {
+                        @Override
+                        public boolean onMenuItemClick(MenuItem menuItem) {
+                            switch (menuItem.getItemId()){
+                                case (R.id.action_copy_fragment) : {
+                                    Toast toast_copy =
+                                            Toast.makeText(requireContext().getApplicationContext(),
+                                            "Copy is done", Toast.LENGTH_SHORT);
+                                    toast_copy.show();
+                                    return true;
+                                }
+                                case (R.id.action_delete_fragment) : {
+                                    // TODO реализовать настройки
+                                    return true;
+                                }
+                                case (R.id.action_archive_fragment) : {
+                                    Toast toast_archive =
+                                            Toast.makeText(requireContext().getApplicationContext(),
+                                            "Add to the archive", Toast.LENGTH_SHORT);
+                                    toast_archive.show();
+                                    return true;
+                                }
+                            }
+                            return true;
+                        }
+                    });
+
+                    popupMenu.show();
+                    return true;
+                }
+            });
+
         }
     }
+
 
     protected void showLand(){
         Note_content_fragment note_content_fragment =Note_content_fragment.newInstance(currentNote);

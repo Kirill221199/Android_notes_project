@@ -21,6 +21,7 @@ import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -63,8 +64,15 @@ public class Note_content_fragment extends Fragment {
             case (R.id.action_settings_fragment) : {
                 // TODO реализовать настройки
             }
+            case (R.id.action_copy_fragment) : {
+                Toast toast_copy =
+                        Toast.makeText(requireContext().getApplicationContext(),
+                                "Copy is done", Toast.LENGTH_SHORT);
+                toast_copy.show();
+                return true;
+            }
             case (R.id.action_send_fragment) : {
-                // TODO реализовать настройки
+                // TODO реализовать отправку заметки
             }
         }
         return super.onOptionsItemSelected(item);

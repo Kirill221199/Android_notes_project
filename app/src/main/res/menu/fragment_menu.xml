@@ -5,7 +5,10 @@
     <item android:title="@string/settings"
         android:id="@+id/action_settings_fragment" />
 
-    <item android:title="Send"
+    <item android:title="@string/copy"
+        android:id="@+id/action_copy_fragment" />
+
+    <item android:title="@string/send"
         android:icon="@drawable/ic_share"
         android:id="@+id/action_send_fragment"
         app:showAsAction="always"/>
