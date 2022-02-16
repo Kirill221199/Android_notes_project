@@ -63,6 +63,7 @@ public class Note_content_fragment extends Fragment {
         switch (item.getItemId()){
             case (R.id.action_settings_fragment) : {
                 // TODO реализовать настройки
+                return true;
             }
             case (R.id.action_copy_fragment) : {
                 Toast toast_copy =
@@ -73,6 +74,7 @@ public class Note_content_fragment extends Fragment {
             }
             case (R.id.action_send_fragment) : {
                 // TODO реализовать отправку заметки
+                return true;
             }
         }
         return super.onOptionsItemSelected(item);
