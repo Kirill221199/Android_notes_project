@@ -9,7 +9,7 @@
         <item>Note 5</item>
     </string-array>
 
-    <string-array name="note_content">
+    <string-array name="notesContent">
         <item>Content 1</item>
         <item>Content 2</item>
         <item>Content 3</item>

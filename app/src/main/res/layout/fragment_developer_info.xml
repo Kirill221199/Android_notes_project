@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Developer_info"
+    tools:context=".DeveloperInfo"
     android:gravity="center"
-    android:textSize="@dimen/size_info"
-    android:text="@string/developer_info"
+    android:textSize="@dimen/sizeInfo"
+    android:text="@string/developerInfo"
     android:textColor="@color/black">
 
 </TextView>

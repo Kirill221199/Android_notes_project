@@ -8,11 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class Developer_info extends Fragment {
+public class DeveloperInfo extends Fragment {
 
 
-    public static Developer_info newInstance() {
-        Developer_info fragment = new Developer_info();
+    public static DeveloperInfo newInstance() {
+        DeveloperInfo fragment = new DeveloperInfo();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;

@@ -1,13 +1,11 @@
 package ru.kirill.android_notes_project;
 
 import android.app.DatePickerDialog;
-import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
 import android.view.Gravity;
@@ -18,26 +16,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
-import java.util.zip.Inflater;
 
-public class Note_content_fragment extends Fragment {
+public class NoteContentFragment extends Fragment {
 
     public static final String ARG_NOTE = "note";
     protected Note note;
     protected TextView data;
 
-    public static Note_content_fragment newInstance(Note note) {
-        Note_content_fragment fragment = new Note_content_fragment();
+    public static NoteContentFragment newInstance(Note note) {
+        NoteContentFragment fragment = new NoteContentFragment();
         Bundle bundle= new Bundle();
         bundle.putParcelable(ARG_NOTE,note);
         fragment.setArguments(bundle);
@@ -66,10 +57,10 @@ public class Note_content_fragment extends Fragment {
                 return true;
             }
             case (R.id.action_copy_fragment) : {
-                Toast toast_copy =
+                Toast toastCopy =
                         Toast.makeText(requireContext().getApplicationContext(),
                                 "Copy is done", Toast.LENGTH_SHORT);
-                toast_copy.show();
+                toastCopy.show();
                 return true;
             }
             case (R.id.action_send_fragment) : {
@@ -85,7 +76,7 @@ public class Note_content_fragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         setHasOptionsMenu(true);
         note = getArguments().getParcelable(ARG_NOTE);
-        String[] notes = getResources().getStringArray(R.array.note_content);
+        String[] notes = getResources().getStringArray(R.array.notesContent);
         TextView tv = view.findViewById(R.id.tv_content);
         tv.setText(notes[note.getIndex()]);
 

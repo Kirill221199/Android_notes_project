@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Note_content_fragment"
+    tools:context=".NoteContentFragment"
     android:background="@color/white"
     android:clickable="true">
 
@@ -14,7 +14,7 @@
         android:id="@+id/tv_data"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/data_text_size"
+        android:textSize="@dimen/dataTextSize"
         android:textColor="@color/black"
         />
 
@@ -22,7 +22,7 @@
         android:id="@+id/tv_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="@dimen/data_text_size"
+        android:textSize="@dimen/dataTextSize"
         android:textColor="@color/black"
         />
 

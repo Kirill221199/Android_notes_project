@@ -2,10 +2,8 @@ package ru.kirill.android_notes_project;
 
 import android.content.res.Configuration;
 import android.graphics.Color;
-import android.graphics.ColorSpace;
 import android.os.Bundle;
 
-import androidx.annotation.ColorRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -20,13 +18,13 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Note_fragment extends Fragment {
+public class NoteFragment extends Fragment {
 
     public static final String CURRENT_NOTE = "note_current";
     private Note currentNote;
 
-    public static Note_fragment newInstance() {
-        Note_fragment fragment = new Note_fragment();
+    public static NoteFragment newInstance() {
+        NoteFragment fragment = new NoteFragment();
         return fragment;
     }
 
@@ -90,10 +88,10 @@ public class Note_fragment extends Fragment {
                         public boolean onMenuItemClick(MenuItem menuItem) {
                             switch (menuItem.getItemId()){
                                 case (R.id.action_copy_fragment) : {
-                                    Toast toast_copy =
+                                    Toast toastCopy =
                                             Toast.makeText(requireContext().getApplicationContext(),
                                             "Copy is done", Toast.LENGTH_SHORT);
-                                    toast_copy.show();
+                                    toastCopy.show();
                                     return true;
                                 }
                                 case (R.id.action_delete_fragment) : {
@@ -101,10 +99,10 @@ public class Note_fragment extends Fragment {
                                     return true;
                                 }
                                 case (R.id.action_archive_fragment) : {
-                                    Toast toast_archive =
+                                    Toast toastArchive =
                                             Toast.makeText(requireContext().getApplicationContext(),
                                             "Add to the archive", Toast.LENGTH_SHORT);
-                                    toast_archive.show();
+                                    toastArchive.show();
                                     return true;
                                 }
                             }
@@ -122,14 +120,14 @@ public class Note_fragment extends Fragment {
 
 
     protected void showLand(){
-        Note_content_fragment note_content_fragment =Note_content_fragment.newInstance(currentNote);
+        NoteContentFragment note_contentFragment = NoteContentFragment.newInstance(currentNote);
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_note_content,
-                note_content_fragment).commit();
+                note_contentFragment).commit();
     }
 
     protected void showPort(){
-        Note_content_fragment note_content_fragment =Note_content_fragment.newInstance(currentNote);
+        NoteContentFragment note_contentFragment = NoteContentFragment.newInstance(currentNote);
         getActivity().getSupportFragmentManager().beginTransaction().add(R.id.frame_note,
-                note_content_fragment).addToBackStack("").commit();
+                note_contentFragment).addToBackStack("").commit();
     }
 }
