@@ -65,30 +65,10 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         int count = getSupportFragmentManager().getBackStackEntryCount();
         if (count == 0) {
-            openDialogExit();
+            new DialogFragmentExit().show(getSupportFragmentManager(), "tag");
         } else {
             getSupportFragmentManager().popBackStack();
         }
     }
 
-    protected void openDialogExit(){
-        new AlertDialog.Builder(this)
-                .setTitle("Are you sure to exit?")
-                .setPositiveButton("Yes", (dialog, which) -> {
-                    showToast("See you!");
-                    super.onBackPressed();
-                })
-                .setNegativeButton("No", (dialog, which) -> {
-                    showToast("Thank you for staying");
-                })
-                .setNeutralButton("Don't know",(dialog, which) -> {
-                    showToast("It would be necessary to decide already");
-                })
-                .show();
-
-    }
-
-    protected void showToast(String message){
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-    }
 }
