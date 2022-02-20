@@ -65,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         int count = getSupportFragmentManager().getBackStackEntryCount();
         if (count == 0) {
-            super.onBackPressed();
             openDialogExit();
         } else {
             getSupportFragmentManager().popBackStack();
@@ -76,13 +75,14 @@ public class MainActivity extends AppCompatActivity {
         new AlertDialog.Builder(this)
                 .setTitle("Are you sure to exit?")
                 .setPositiveButton("Yes", (dialog, which) -> {
-                    showToast("Yes");
+                    showToast("See you!");
+                    super.onBackPressed();
                 })
                 .setNegativeButton("No", (dialog, which) -> {
-                    showToast("No");
+                    showToast("Thank you for staying");
                 })
                 .setNeutralButton("Don't know",(dialog, which) -> {
-                    showToast("I don't know");
+                    showToast("It would be necessary to decide already");
                 })
                 .show();
 
