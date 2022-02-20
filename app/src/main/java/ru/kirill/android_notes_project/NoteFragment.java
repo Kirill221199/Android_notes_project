@@ -4,11 +4,13 @@ import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -130,4 +132,7 @@ public class NoteFragment extends Fragment {
         getActivity().getSupportFragmentManager().beginTransaction().add(R.id.frame_note,
                 note_contentFragment).addToBackStack("").commit();
     }
+
+
+
 }

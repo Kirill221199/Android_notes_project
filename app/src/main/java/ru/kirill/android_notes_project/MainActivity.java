@@ -5,9 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -53,7 +57,38 @@ public class MainActivity extends AppCompatActivity {
         Fragment backStackFragment = (Fragment)getSupportFragmentManager()
                 .findFragmentById(R.id.frame_note);
         if(backStackFragment!=null&&backStackFragment instanceof NoteContentFragment){
-            onBackPressed();
+           onBackPressed();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        int count = getSupportFragmentManager().getBackStackEntryCount();
+        if (count == 0) {
+            super.onBackPressed();
+            openDialogExit();
+        } else {
+            getSupportFragmentManager().popBackStack();
+        }
+    }
+
+    protected void openDialogExit(){
+        new AlertDialog.Builder(this)
+                .setTitle("Are you sure to exit?")
+                .setPositiveButton("Yes", (dialog, which) -> {
+                    showToast("Yes");
+                })
+                .setNegativeButton("No", (dialog, which) -> {
+                    showToast("No");
+                })
+                .setNeutralButton("Don't know",(dialog, which) -> {
+                    showToast("I don't know");
+                })
+                .show();
+
+    }
+
+    protected void showToast(String message){
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }
