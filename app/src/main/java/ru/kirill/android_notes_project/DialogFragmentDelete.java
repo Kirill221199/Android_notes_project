@@ -9,22 +9,18 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
-public class DialogFragmentExit extends DialogFragment {
+public class DialogFragmentDelete extends DialogFragment {
 
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         return new AlertDialog.Builder(requireContext())
-                .setTitle("Are you sure to exit?")
+                .setTitle("Sure you want to delete note?")
                 .setPositiveButton("Yes", (dialog, which) -> {
-                    showToast("See you!");
-                    requireActivity().finish();
+                    showToast("Note delete!");
                 })
                 .setNegativeButton("No", (dialog, which) -> {
-                    showToast("Thank you for staying");
-                })
-                .setNeutralButton("Don't know",(dialog, which) -> {
-                    showToast("It would be necessary to decide already");
+                    showToast("Note not deleted.");
                 })
                 .show();
 

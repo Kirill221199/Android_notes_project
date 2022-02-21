@@ -97,7 +97,7 @@ public class NoteFragment extends Fragment {
                                     return true;
                                 }
                                 case (R.id.action_delete_fragment) : {
-                                    // TODO реализовать настройки
+                                    new DialogFragmentDelete().show(getActivity().getSupportFragmentManager(),"tag");
                                     return true;
                                 }
                                 case (R.id.action_archive_fragment) : {

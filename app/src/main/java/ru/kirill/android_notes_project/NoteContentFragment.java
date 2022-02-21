@@ -63,6 +63,10 @@ public class NoteContentFragment extends Fragment {
                 toastCopy.show();
                 return true;
             }
+            case (R.id.action_delete_fragment) : {
+                new DialogFragmentDelete().show(getActivity().getSupportFragmentManager(),"tag");
+                return true;
+            }
             case (R.id.action_send_fragment) : {
                 // TODO реализовать отправку заметки
                 return true;
